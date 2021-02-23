@@ -95,7 +95,7 @@ export function templateEntityToSpec(
   };
 }
 
-type ActionContext = {
+export type ActionContext = {
   logger: Logger;
   logStream: Writable;
 
