@@ -28,8 +28,12 @@ import {
 
 import { rootDocsRouteRef } from '../../plugin';
 
-export const OverviewContent = ({ value }: { value: Entity[] | undefined }) => {
-  if (!value) return null;
+export const OverviewContent = ({
+  entities,
+}: {
+  entities: Entity[] | undefined;
+}) => {
+  if (!entities) return null;
   return (
     <Content>
       <ContentHeader
@@ -39,8 +43,8 @@ export const OverviewContent = ({ value }: { value: Entity[] | undefined }) => {
         <SupportButton>Discover documentation in your ecosystem.</SupportButton>
       </ContentHeader>
       <Grid container data-testid="docs-explore">
-        {value?.length
-          ? value.map((entity: Entity, index: number) => (
+        {entities?.length
+          ? entities.map((entity: Entity, index: number) => (
               <Grid key={index} item xs={12} sm={6} md={3}>
                 <ItemCard
                   href={generatePath(rootDocsRouteRef.path, {
